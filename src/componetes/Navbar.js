@@ -2,7 +2,7 @@ function Navbar() {
     return ( 
         <nav>
             <ul>
-                <li>Capura</li>
+                <li>Captura</li>
                 <li>Simulador</li>
             </ul>
         </nav>
