@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { StrictMode } from "react/cjs/react.production.min";
 
 var lista = []
@@ -6,6 +6,46 @@ var lista = []
 function Tabla() {
 
     const [cargado, setCargado] = useState(false);
+    const [selfil, setFil] = useState(1);
+    const [selcant, setCant] = useState(5);
+    let fil = useRef(null);
+    let cant = useRef(null);
+
+    const cambiarCant = () => {
+        setCant(cant.current.value);
+    }
+    const cambiarFil = () => {
+        setFil(fil.current.value);
+    }
+
+    const Ordenar = () => {
+        if (selfil === 1) {
+            lista.sort(function (a, b) {
+                if (a.Memoria > b.Memoria) {
+                    return 1;
+                }
+                if (a.Memoria < b.Memoria) {
+                    return -1;
+                }
+                // a must be equal to b
+                return 0;
+            });
+        }
+        else {
+            lista.sort(function (a, b) {
+                if (a.TimeCpu > b.TiempoCpu) {
+                    return 1;
+                }
+                if (a.TiempoCpu < b.TiempoCpu) {
+                    return -1;
+                }
+                // a must be equal to b
+                return 0;
+            });
+        }
+
+    }
+
 
     useEffect(() => {
         listaProc()
@@ -17,7 +57,6 @@ function Tabla() {
             .then((json) => {
                 var i = 0
                 while (i < 131) {
-                    console.log(i)
                     let text = json[i].split(",");
                     let Nombre = text[0].replace(/"/g, "").replace(/{/g, "");
                     let PID = text[1].replace(/"/g, "").replace(/{/g, "");
@@ -41,7 +80,6 @@ function Tabla() {
                     })
                     i++;
                 }
-
                 lista.sort(function (a, b) {
                     if (a.Memoria > b.Memoria) {
                         return 1;
@@ -60,6 +98,16 @@ function Tabla() {
 
     return (
         <StrictMode>
+            <div className="selectores">
+                <label>Cantodad a Mostrar</label>
+                <input type="number" defaultValue={5} ref={cant} onChange={cambiarCant}></input>
+                <label>Filtrar Por</label>
+                <select id="filtro" ref={fil} onChange={cambiarFil}>
+                    <option value={1}>Memoria</option>
+                    <option value={2}>Tiempo CPU</option>
+                </select>
+
+            </div>
             {
                 cargado ?
                     <table>
@@ -74,8 +122,9 @@ function Tabla() {
                         <tbody>
                             {
                                 lista.map((iten, i) => (
+                                    i < selcant &&
                                     <tr key={i}>
-                                        <td>{i}</td>
+                                        <td>{i + 1}</td>
                                         <td>{iten.nombre}</td>
                                         <td>{iten.User}</td>
                                         <td>{iten.Estado}</td>
