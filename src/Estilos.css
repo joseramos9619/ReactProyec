@@ -11,6 +11,7 @@
   }
 header{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 80px;
@@ -28,15 +29,29 @@ nav{
 }
 nav ul{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 nav li{
-    padding: 5px;
     display: flex;
     list-style: none;
     text-decoration: none;
     color: var(--color2);
+}
+nav li span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15vh;
+    height: 5vh;
+}
+nav li :hover{
+    color: var(--color1);
+    background-color: var(--color2);
+}
+.activa{
+    color: var(--color1);
+    background-color: var(--color2);
 }
 .opciones {
     width: 100%;
@@ -63,7 +78,7 @@ input{
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 70.5vh;
+    min-height: 67.5vh;
 }
 table{
 	background-color:var(--color2);

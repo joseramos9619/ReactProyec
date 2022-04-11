@@ -9,6 +9,7 @@ function Tabla(props) {
           <tr>
             <th>#</th>
             <th>Nombre</th>
+            <th>PID</th>
             <th>Usuario</th>
             <th>Descriccion</th>
             <th>Memoria</th>
@@ -22,6 +23,7 @@ function Tabla(props) {
                   <tr key={i}>
                     <td>{i+1}</td>
                     <td>{iten.nombre}</td>
+                    <td>{iten.PID}</td>
                     <td>{iten.User}</td>
                     <td>{iten.Estado}</td>
                     <td>{iten.Memoria} KB</td>
