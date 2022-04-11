@@ -5,6 +5,7 @@ function Tabla(props) {
     <StrictMode>
       {
         <table>
+          <thead>
           <tr>
             <th>#</th>
             <th>Nombre</th>
@@ -13,12 +14,13 @@ function Tabla(props) {
             <th>Memoria</th>
             <th>Tiempo CPU</th>
           </tr>
+          </thead>
           <tbody>
             {props.lista.map(
               (iten, i) =>
                 i < props.cant && (
                   <tr key={i}>
-                    <td>{i}</td>
+                    <td>{i+1}</td>
                     <td>{iten.nombre}</td>
                     <td>{iten.User}</td>
                     <td>{iten.Estado}</td>

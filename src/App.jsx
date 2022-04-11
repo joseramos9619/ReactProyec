@@ -100,7 +100,8 @@ function App() {
     <React.StrictMode>
       <Header />
       <Navbar />
-      <div>
+      <div className="opciones">
+        <div>
         <labe>Cantidad a Mostrar: </labe>
         <input
           type="number"
@@ -110,18 +111,22 @@ function App() {
           max={131}
           onChange={opteCant}
         ></input>
+        </div>
+        <div>
         <labe>Filtrar Por: </labe>
-        <select name="selectores" id="selet" ref={fil} onClick={opteFil} onChange={ordTabla}>
+        <select ref={fil} onChange={opteFil} onClick={ordTabla}>
           <option value={1}>Memoria</option>
           <option value={2}>Tiempo CPU</option>
         </select>
-        <label>{filtro}</label>
+        </div>
       </div>
+      <div className="tab">
       {cargado ? (
             <Tabla lista={lis} cant={mostrar}/>
       ) : (
         <div>Cargando datos....</div>
       )}
+      </div>
     </React.StrictMode>
   );
 }

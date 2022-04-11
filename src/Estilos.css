@@ -38,3 +38,61 @@ nav li{
     text-decoration: none;
     color: var(--color2);
 }
+.opciones {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.opciones div{
+    font-size: 18px;
+    width: 40vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+}
+input{
+    text-align: center;
+    width: 8vh;
+}
+.tab{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 70.5vh;
+}
+table{
+	background-color:var(--color2);
+	text-align: left;
+	border-collapse: collapse;
+    border: solid 2px var(--color1);
+    box-shadow: 8px 8px 8px var(--color1);
+	width: 70%;
+}
+
+th, td{
+	padding: 10px;
+}
+
+thead{
+	background-color:var(--color1);
+	border-bottom: solid 2px var(--color3);
+	color: white;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 3px;
+    background-color: var(--color1);
+    color: white;
+    position: absolute;
+  }
